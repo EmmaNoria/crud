@@ -1,0 +1,21 @@
+td,tr,th {
+    
+    margin: 0 auto;
+    width: 80vw;
+    font-size: 20px;
+    border: solid pink;
+    height: 5vh; 
+    
+   
+     
+ }
+ table{
+    border-collapse: collapse;
+ }
+ input{
+     margin: 5px;
+ }
+ button{
+     margin: 5px;
+ }
+ 
