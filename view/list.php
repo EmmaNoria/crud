@@ -1,16 +1,5 @@
 <?php 
-// on démarre une session 
-session_start();
-// on inclut la connexion à la base 
-require_once('connect.php');
-$sql = 'select * from `produits`';
-// on prépare la requête 
-$query = $db->prepare($sql);
-// on exécute la requête
-$query->execute();
-//on stocke le résultat dans un tableau associatif
-$result = $query->fetchAll(PDO::FETCH_ASSOC);
-require_once('close.php');
+
 echo    '<div> 
 '.$_SESSION['message'].'
 </div>';
