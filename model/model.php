@@ -12,7 +12,7 @@ private function connect(){
         $db->exec( 'SET NAMES "UTF8"');
         // on ajoute ça 
         return $db;
-        
+
         } catch ( PDOException $e){
         echo 'Erreur : '.$e->getMessage();
         die();
@@ -30,12 +30,11 @@ public function view(){
         // on exécute la requête
         $query->execute();
         //on stocke le résultat dans un tableau associatif
-        $result = $query->fetchAll(PDO::FETCH_ASSOC);
-        // on remplace le require_once('close.php');par 
-        $db = $this->close();
+        return $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        //on a supprimé la fonction close() car du moment qu'on sort de la fonction
+        //toutes les variables disparaissent y compris $db = $this->close();
+        //ça se fait automatiquement on a pas besoin de l'écrire 
+        
 }
-private function close()   
-    {
-        return null;
-    }
+
 }
