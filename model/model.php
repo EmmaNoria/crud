@@ -1,6 +1,6 @@
 <?php
 
-class model 
+class Model 
 {
 private function connect(){
         try {
