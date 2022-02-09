@@ -1,7 +1,12 @@
 <?php
 require("./controller/controller.php");
 
-viewProducts();
-
+if (isset($_GET['action'])){
+    if($_GET['action']=='add'){
+        addProduct();
+    }
+}else{
+    viewProducts();
+}
 
 ?>
