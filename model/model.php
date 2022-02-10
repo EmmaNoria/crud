@@ -106,5 +106,51 @@ class Model
 
         header('location: index.php');
     }
+
+    public function update(){
+
+        session_start();
+
+        $db = $this->connect();
+
+        $id = $this->id_produits;
+
+        $produit = $this->produit;
+
+        $prix_produits = $this->prix_produits;
+
+        $nombre_produits = $this->nombre_produits;
+
+        $sql = 'UPDATE `produits` SET `produit` = :produit,`prix_produits` = :prix_produits,`nombre_produits` = :nombre_produits
+            WHERE  `id_produits`= :id;';
+
+
+        $query = $db->prepare($sql);
+        
+        $query->bindValue(':id',$id, PDO::PARAM_INT);
+        $query->bindValue(':produit', $produit, PDO::PARAM_STR);
+        $query->bindValue(':prix_produits',$prix_produits, PDO::PARAM_STR);
+        $query->bindValue(':nombre_produits', $nombre_produits, PDO::PARAM_INT);
+
+        $query->execute();
+        $_SESSION['message'] = "produit ajouté";
+
+        header('location: index.php');
+
+    }
+
+    public function getOneligne(){
+        session_start();
+
+        $db = $this->connect();
+
+        $id = $this->id_produits;
+        $sql = 'SELECT * FROM `produits` WHERE `id_produits`= :id;';
+        $query = $db->prepare($sql);
+        $query->bindValue(':id',$id,PDO::PARAM_INT);
+        $query->execute();
+        return $result = $query->fetch(PDO::FETCH_ASSOC);
+        // require_once('close.php');
+    }
 }
 ?>

@@ -29,7 +29,7 @@ $_SESSION['message'] = "";
                 <td><?= $produit['prix_produits']?></td>
                 <td><?= $produit['nombre_produits']?></td>
                 <td><a href="index.php?action=add">Ajouter un produit</a></td>
-                <td><a href="update.php?id=<?= $produit['id_produits']?>">modifier</a></td>
+                <td><a href="index.php?action=update&id=<?= $produit['id_produits']?>">modifier</a></td>
                 <td><a href="delete.php?id=<?= $produit['id_produits']?>">supprimer</a></td>
             </tr>
             <?php
