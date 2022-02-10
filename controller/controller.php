@@ -52,6 +52,12 @@ function updateProduct(){
     }
     require("./view/update.php");
 }
-
-
+function deleteProducts(){
+        if(isset($_GET['id']) && !empty($_GET['id'])){
+            $id = strip_tags($_GET['id']);
+            $model= new Model();
+            $model->setId_produits($id);
+            $model->delete();
+        }
+}
 ?>

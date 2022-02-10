@@ -6,6 +6,8 @@ if (isset($_GET['action'])){
         addProduct();
     } else if($_GET['action']=='update') {
         updateProduct();
+    } else if($_GET['action']=='delete'){ 
+        deleteProducts();
     }
 }else{
     viewProducts();

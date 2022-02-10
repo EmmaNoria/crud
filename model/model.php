@@ -152,5 +152,19 @@ class Model
         return $result = $query->fetch(PDO::FETCH_ASSOC);
         // require_once('close.php');
     }
+
+    public function delete(){
+        session_start();
+        $db = $this->connect();
+        $id = $this->id_produits;
+        $sql = "DELETE FROM `produits` WHERE `id_produits`=:id;";
+
+        $query = $db->prepare($sql);
+    
+        $query->bindValue(':id', $id, PDO::PARAM_INT);
+        $query->execute();
+        header('location: index.php');
+    }
 }
+
 ?>
